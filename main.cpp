@@ -24,20 +24,20 @@ int main(){
     }
     MessageBuffer* mBuffer = new MessageBuffer(generals);
 
-    for (int i = 1;  i<numberOfLoyals+numberOfTraitors+1; ++i){
-        mBuffer->addMessage(comander->createMessage(i,command));
-    }
-    mBuffer->sendAllMessages();
-    for (int j = 1;  j<numberOfLoyals+numberOfTraitors+1; ++j){
-        for (int i = 1;  i<numberOfLoyals+numberOfTraitors+1; ++i){
-            if (i!=j){
-                mBuffer->addMessage(generals[j]->createSecundaryMessage(i));
-            }
+    // for (int i = 1;  i<numberOfLoyals+numberOfTraitors+1; ++i){
+    //     mBuffer->addMessage(comander->createMessage(i,command));
+    // }
+    // mBuffer->sendAllMessages();
+    // for (int j = 1;  j<numberOfLoyals+numberOfTraitors+1; ++j){
+    //     for (int i = 1;  i<numberOfLoyals+numberOfTraitors+1; ++i){
+    //         if (i!=j){
+    //             mBuffer->addMessage(generals[j]->createSecondaryMessage(i));
+    //         }
             
-        }
+    //     }
         
-    }
-    mBuffer->sendAllMessages();
+    // }
+    // mBuffer->sendAllMessages();
 
     std::map<char,int> results;
     results.insert(std::pair<char,int>('r',0));
@@ -51,7 +51,7 @@ int main(){
     std::cout << "The commander is " << (isComanderTraitor ? "a traitor " : "not a traitor ");
     std::cout << "and asked the generals to "<< ((command=='a')? "attack" : "retreat") << " and the results was: "<< std::endl;
     std::cout << "Loyals that attacked: " << results['a']<<std::endl;
-    std::cout << "Loyals that retrieved: " << results['r']<<std::endl;
+    std::cout << "Loyals that retreated: " << results['r']<<std::endl;
     return 0;
 
 }
