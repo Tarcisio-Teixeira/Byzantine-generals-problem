@@ -1,4 +1,4 @@
-#pragma once
+
 #include "general.cpp"
 #include "function.cpp"
 #include <iostream>

@@ -18,7 +18,7 @@ char majority(std::vector<char> res, int rowIndex, int n){
     if (max==counterR) return 'r';
     else if (max==counterA) return 'a';
     else if (max==counterN) return 'n';
-    else if (max==counterD) return 'd';
+    else  return 'd';
 
 };
 std::vector<General*> removeGeneralI(int i, std::vector<General*> generals){
