@@ -28,8 +28,6 @@ std::vector<General*> removeGeneralI(int i, std::vector<General*> generals){
     }
     return res;
 };
-
-
 std::vector<char> OMAux(int m, General* commander, std::vector<General*> generals, char _received) {
     int n = generals.size();
     char received;
@@ -69,7 +67,6 @@ std::vector<char> OMAux(int m, General* commander, std::vector<General*> general
 std::vector<char> OM(int m, General* commander, std::vector<General*> generals){
     return OMAux(m,commander,generals, 'a');
 };
-
 std::map<char,int> simulate(int numberOfIterations, int numberOfLoyals, int numberOfTraitors, bool isComanderTraitor ){
     std::vector<General*> generals;
     General* commander = new General(0,isComanderTraitor);
