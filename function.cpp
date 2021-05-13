@@ -34,15 +34,15 @@ std::vector<char> OMAux(int m, General* commander, std::vector<General*> general
     std::vector<char> initialMessages = commander->generateMessages(n,_received);
     std::vector<char> resI, result;
     if (m==0){
-        for (int i=0; i<n; ++i){
-            initialMessages[i] = generals[i]->decideMessage(initialMessages[i]);
-        }
+        // for (int i=0; i<n; ++i){
+        //     initialMessages[i] = generals[i]->decideMessage(initialMessages[i]);
+        // }
         return initialMessages;
     }
     else {
         std::vector<char> res(n*n, 'd');
         for (int i=0; i<n; ++i){
-            received = generals[i]->decideMessage(initialMessages[i]);
+            received = initialMessages[i]; //generals[i]->decideMessage(initialMessages[i]);
             resI = OMAux(m-1,generals[i],removeGeneralI(i,generals), received);
             for (int j=0; j<n-1;++j){
                 if (j>=i) res[(j+1)*n + i]=resI[j];
@@ -67,12 +67,12 @@ std::vector<char> OMAux(int m, General* commander, std::vector<General*> general
 std::vector<char> OM(int m, General* commander, std::vector<General*> generals){
     return OMAux(m,commander,generals, 'a');
 };
-std::map<char,int> simulate(int numberOfIterations, int numberOfLoyals, int numberOfTraitors, bool isComanderTraitor ){
+std::map<char,int> simulate(int numberOfIterations, int numberOfLoyals, int numberOfTraitors, bool isCommanderTraitor ){
     std::vector<General*> generals;
-    General* commander = new General(0,isComanderTraitor);
+    General* commander = new General(0,isCommanderTraitor);
     std::map<char,int> results;
     int failureCounter=0,tmpA,tmpR;
-    int m = isComanderTraitor ? 1 : 0;
+    int m = isCommanderTraitor ? 1 : 0;
     m+=numberOfTraitors;
     results.insert(std::pair<char,int>('r',0));
     results.insert(std::pair<char,int>('a',0));
@@ -99,12 +99,11 @@ std::map<char,int> simulate(int numberOfIterations, int numberOfLoyals, int numb
         if (results['a']-tmpA != numberOfLoyals && results['r']-tmpR != numberOfLoyals){
             // std::cout << results['a']-tmpA << "," <<results['r']-tmpR << std::endl;
             failureCounter++;
-        }else if ( !isComanderTraitor && results['a']-tmpA != numberOfLoyals ){
+        }else if ( !isCommanderTraitor && results['a']-tmpA != numberOfLoyals ){
             failureCounter++;
         }
-        
     }
-    std::cout << "The loyals failed in "<< failureCounter << (failureCounter==1 ? "time." :" times." )<< std::endl;
+    results['f'] = failureCounter;
     return results;
 
 }

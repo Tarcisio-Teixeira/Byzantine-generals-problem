@@ -1,0 +1,36 @@
+Execution time vs number of generals and traitors
+N. generals (incl. commander)   N. traitors         Avg time
+4                               1                   6              (microseconds)
+7                               2                   77
+10                              3                   1343
+13                              4                   33551
+16                              5                   1118897
+19                              6                   42399593
+
+Success rate
+N. generals (incl. commander)   N. traitors         Retreat-only traitors       Random message traitors     Reverse message traitors
+16                              5                   100 / 100                   100 / 100                   100 / 100
+15                              5                   32 / 100                    100 / 100                   35 / 100
+14                              5                   30 / 100                    99 / 100                    29 / 100
+13                              5                   39 / 100                    39 / 100                    35 / 100
+12                              5                   36 / 100                    25 / 100                    100 / 100
+11                              5                   47 / 100                    42 / 100                    38 / 100
+10                              5                   51 / 100                    43 / 100                    47 / 100
+9                               5                   48 / 100                    59 / 100                    55 / 100
+8                               5                   52 / 100                    65 / 100                    100 / 100
+7                               5                   71 / 100                    70 / 100                    59 / 100
+6                               5                   100 / 100                   100 / 100                   100 / 100
+
+Average number of generals following order if the commander is not a traitors
+N. generals (incl. commander)   N. traitors         Retreat-only traitors       Random message traitors     Reverse message traitors
+16                              5                   10 / 10                     10 / 10                     10 / 10
+15                              5                   0 / 9                       9 / 9                       0 / 9
+14                              5                   0 / 8                       7.98 / 8                    0 / 8
+13                              5                   0 / 7                       0.64 / 7                    0 / 7
+12                              5                   0 / 6                       0.97 / 6                    6 / 6
+11                              5                   0 / 5                       0 / 5                       0 / 5
+10                              5                   0 / 4                       0.01 / 4                    0 / 4
+9                               5                   0 / 3                       0 / 3                       0 / 3
+8                               5                   0 / 2                       0 / 2                       2 / 2
+7                               5                   0 / 1                       0 / 1                       0 / 1
+6                               5                   0 / 0                       0 / 0                       0 / 0
