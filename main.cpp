@@ -7,15 +7,15 @@
 
 // writing on a text file
 // #include <iostream>
-#include <fstream>
+// #include <fstream>
 
 int main(){
-    std::ofstream myfile ("example.txt");
-    int numberOfGenerals = 10;
-    for(int numberOfTraitors=1;numberOfTraitors<7;numberOfTraitors++){
+    // std::ofstream myfile ("example.txt");
+    // int numberOfGenerals = 10;
+    // for(int numberOfTraitors=1;numberOfTraitors<7;numberOfTraitors++){
     srand(time(NULL));
     int numberOfIterations=100, numberOfLoyals=numberOfGenerals-numberOfTraitors-1;
-    // int numberOfTraitors=5;
+    int numberOfTraitors=5;
     bool isCommanderTraitor=false;
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
@@ -57,13 +57,13 @@ int main(){
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     std::cout << "Elapsed time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << " microseconds" << std::endl;
 
-    if (myfile.is_open())
-    {
-        myfile << std::to_string(numberOfTraitors) << ","<< std::to_string(numberOfGenerals)<< "," << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
-        myfile << "\n";
-    }
-    else std::cout << "Unable to open file";
-    }
-    myfile.close();
+    // if (myfile.is_open())
+    // {
+    //     myfile << std::to_string(numberOfTraitors) << ","<< std::to_string(numberOfGenerals)<< "," << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
+    //     myfile << "\n";
+    // }
+    // else std::cout << "Unable to open file";
+    // }
+    // myfile.close();
     return 0;
 }
